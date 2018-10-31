@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiguaLab.ssm.mapper.MessageMapper">
+  <resultMap id="BaseResultMap" type="com.xiguaLab.ssm.pojo.Message">
+    <id column="messageId" jdbcType="VARCHAR" property="messageid" />
+    <result column="messageContent" jdbcType="VARCHAR" property="messagecontent" />
+    <result column="messageTime" jdbcType="VARCHAR" property="messagetime" />
+    <result column="messageCategory" jdbcType="VARCHAR" property="messagecategory" />
+    <result column="messageFrom" jdbcType="VARCHAR" property="messagefrom" />
+    <result column="messageTo" jdbcType="VARCHAR" property="messageto" />
+    <result column="messageStatus" jdbcType="INTEGER" property="messagestatus" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    messageId, messageContent, messageTime, messageCategory, messageFrom, messageTo, 
+    messageStatus
+  </sql>
+  <select id="selectByExample" parameterType="com.xiguaLab.ssm.pojo.MessageExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from message
+    where messageId = #{messageid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from message
+    where messageId = #{messageid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xiguaLab.ssm.pojo.MessageExample">
+    delete from message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xiguaLab.ssm.pojo.Message">
+    insert into message (messageId, messageContent, messageTime, 
+      messageCategory, messageFrom, messageTo, 
+      messageStatus)
+    values (#{messageid,jdbcType=VARCHAR}, #{messagecontent,jdbcType=VARCHAR}, #{messagetime,jdbcType=VARCHAR}, 
+      #{messagecategory,jdbcType=VARCHAR}, #{messagefrom,jdbcType=VARCHAR}, #{messageto,jdbcType=VARCHAR}, 
+      #{messagestatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xiguaLab.ssm.pojo.Message">
+    insert into message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="messageid != null">
+        messageId,
+      </if>
+      <if test="messagecontent != null">
+        messageContent,
+      </if>
+      <if test="messagetime != null">
+        messageTime,
+      </if>
+      <if test="messagecategory != null">
+        messageCategory,
+      </if>
+      <if test="messagefrom != null">
+        messageFrom,
+      </if>
+      <if test="messageto != null">
+        messageTo,
+      </if>
+      <if test="messagestatus != null">
+        messageStatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="messageid != null">
+        #{messageid,jdbcType=VARCHAR},
+      </if>
+      <if test="messagecontent != null">
+        #{messagecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="messagetime != null">
+        #{messagetime,jdbcType=VARCHAR},
+      </if>
+      <if test="messagecategory != null">
+        #{messagecategory,jdbcType=VARCHAR},
+      </if>
+      <if test="messagefrom != null">
+        #{messagefrom,jdbcType=VARCHAR},
+      </if>
+      <if test="messageto != null">
+        #{messageto,jdbcType=VARCHAR},
+      </if>
+      <if test="messagestatus != null">
+        #{messagestatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xiguaLab.ssm.pojo.MessageExample" resultType="java.lang.Integer">
+    select count(*) from message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update message
+    <set>
+      <if test="record.messageid != null">
+        messageId = #{record.messageid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messagecontent != null">
+        messageContent = #{record.messagecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messagetime != null">
+        messageTime = #{record.messagetime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messagecategory != null">
+        messageCategory = #{record.messagecategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messagefrom != null">
+        messageFrom = #{record.messagefrom,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messageto != null">
+        messageTo = #{record.messageto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messagestatus != null">
+        messageStatus = #{record.messagestatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update message
+    set messageId = #{record.messageid,jdbcType=VARCHAR},
+      messageContent = #{record.messagecontent,jdbcType=VARCHAR},
+      messageTime = #{record.messagetime,jdbcType=VARCHAR},
+      messageCategory = #{record.messagecategory,jdbcType=VARCHAR},
+      messageFrom = #{record.messagefrom,jdbcType=VARCHAR},
+      messageTo = #{record.messageto,jdbcType=VARCHAR},
+      messageStatus = #{record.messagestatus,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xiguaLab.ssm.pojo.Message">
+    update message
+    <set>
+      <if test="messagecontent != null">
+        messageContent = #{messagecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="messagetime != null">
+        messageTime = #{messagetime,jdbcType=VARCHAR},
+      </if>
+      <if test="messagecategory != null">
+        messageCategory = #{messagecategory,jdbcType=VARCHAR},
+      </if>
+      <if test="messagefrom != null">
+        messageFrom = #{messagefrom,jdbcType=VARCHAR},
+      </if>
+      <if test="messageto != null">
+        messageTo = #{messageto,jdbcType=VARCHAR},
+      </if>
+      <if test="messagestatus != null">
+        messageStatus = #{messagestatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where messageId = #{messageid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xiguaLab.ssm.pojo.Message">
+    update message
+    set messageContent = #{messagecontent,jdbcType=VARCHAR},
+      messageTime = #{messagetime,jdbcType=VARCHAR},
+      messageCategory = #{messagecategory,jdbcType=VARCHAR},
+      messageFrom = #{messagefrom,jdbcType=VARCHAR},
+      messageTo = #{messageto,jdbcType=VARCHAR},
+      messageStatus = #{messagestatus,jdbcType=INTEGER}
+    where messageId = #{messageid,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.xiguaLab.ssm.pojo.Message">
+    <id column="messageId" jdbcType="VARCHAR" property="messageid" />
+    <result column="messageContent" jdbcType="VARCHAR" property="messagecontent" />
+    <result column="messageTime" jdbcType="VARCHAR" property="messagetime" />
+    <result column="messageCategory" jdbcType="VARCHAR" property="messagecategory" />
+    <result column="messageFrom" jdbcType="VARCHAR" property="messagefrom" />
+    <result column="messageTo" jdbcType="VARCHAR" property="messageto" />
+    <result column="messageStatus" jdbcType="INTEGER" property="messagestatus" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    messageId, messageContent, messageTime, messageCategory, messageFrom, messageTo, 
+    messageStatus
+  </sql>
+  <select id="selectByExample" parameterType="com.xiguaLab.ssm.pojo.MessageExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from message
+    where messageId = #{messageid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from message
+    where messageId = #{messageid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xiguaLab.ssm.pojo.MessageExample">
+    delete from message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xiguaLab.ssm.pojo.Message">
+    insert into message (messageId, messageContent, messageTime, 
+      messageCategory, messageFrom, messageTo, 
+      messageStatus)
+    values (#{messageid,jdbcType=VARCHAR}, #{messagecontent,jdbcType=VARCHAR}, #{messagetime,jdbcType=VARCHAR}, 
+      #{messagecategory,jdbcType=VARCHAR}, #{messagefrom,jdbcType=VARCHAR}, #{messageto,jdbcType=VARCHAR}, 
+      #{messagestatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xiguaLab.ssm.pojo.Message">
+    insert into message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="messageid != null">
+        messageId,
+      </if>
+      <if test="messagecontent != null">
+        messageContent,
+      </if>
+      <if test="messagetime != null">
+        messageTime,
+      </if>
+      <if test="messagecategory != null">
+        messageCategory,
+      </if>
+      <if test="messagefrom != null">
+        messageFrom,
+      </if>
+      <if test="messageto != null">
+        messageTo,
+      </if>
+      <if test="messagestatus != null">
+        messageStatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="messageid != null">
+        #{messageid,jdbcType=VARCHAR},
+      </if>
+      <if test="messagecontent != null">
+        #{messagecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="messagetime != null">
+        #{messagetime,jdbcType=VARCHAR},
+      </if>
+      <if test="messagecategory != null">
+        #{messagecategory,jdbcType=VARCHAR},
+      </if>
+      <if test="messagefrom != null">
+        #{messagefrom,jdbcType=VARCHAR},
+      </if>
+      <if test="messageto != null">
+        #{messageto,jdbcType=VARCHAR},
+      </if>
+      <if test="messagestatus != null">
+        #{messagestatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xiguaLab.ssm.pojo.MessageExample" resultType="java.lang.Integer">
+    select count(*) from message
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update message
+    <set>
+      <if test="record.messageid != null">
+        messageId = #{record.messageid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messagecontent != null">
+        messageContent = #{record.messagecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messagetime != null">
+        messageTime = #{record.messagetime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messagecategory != null">
+        messageCategory = #{record.messagecategory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messagefrom != null">
+        messageFrom = #{record.messagefrom,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messageto != null">
+        messageTo = #{record.messageto,jdbcType=VARCHAR},
+      </if>
+      <if test="record.messagestatus != null">
+        messageStatus = #{record.messagestatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update message
+    set messageId = #{record.messageid,jdbcType=VARCHAR},
+      messageContent = #{record.messagecontent,jdbcType=VARCHAR},
+      messageTime = #{record.messagetime,jdbcType=VARCHAR},
+      messageCategory = #{record.messagecategory,jdbcType=VARCHAR},
+      messageFrom = #{record.messagefrom,jdbcType=VARCHAR},
+      messageTo = #{record.messageto,jdbcType=VARCHAR},
+      messageStatus = #{record.messagestatus,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xiguaLab.ssm.pojo.Message">
+    update message
+    <set>
+      <if test="messagecontent != null">
+        messageContent = #{messagecontent,jdbcType=VARCHAR},
+      </if>
+      <if test="messagetime != null">
+        messageTime = #{messagetime,jdbcType=VARCHAR},
+      </if>
+      <if test="messagecategory != null">
+        messageCategory = #{messagecategory,jdbcType=VARCHAR},
+      </if>
+      <if test="messagefrom != null">
+        messageFrom = #{messagefrom,jdbcType=VARCHAR},
+      </if>
+      <if test="messageto != null">
+        messageTo = #{messageto,jdbcType=VARCHAR},
+      </if>
+      <if test="messagestatus != null">
+        messageStatus = #{messagestatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where messageId = #{messageid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xiguaLab.ssm.pojo.Message">
+    update message
+    set messageContent = #{messagecontent,jdbcType=VARCHAR},
+      messageTime = #{messagetime,jdbcType=VARCHAR},
+      messageCategory = #{messagecategory,jdbcType=VARCHAR},
+      messageFrom = #{messagefrom,jdbcType=VARCHAR},
+      messageTo = #{messageto,jdbcType=VARCHAR},
+      messageStatus = #{messagestatus,jdbcType=INTEGER}
+    where messageId = #{messageid,jdbcType=VARCHAR}
+  </update>
+</mapper>
