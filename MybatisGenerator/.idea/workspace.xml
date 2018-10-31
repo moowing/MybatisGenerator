@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="743d81ff-8346-410d-b5f8-31cb05cd8f50" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config/generatorConfig.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -25,27 +26,27 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="1" />
-          <entry key="java" value="3" />
+          <entry key="java" value="4" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="3" />
+          <entry key="JAVA" value="4" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="java" value="710" />
-          <entry key="xml" value="134" />
+          <entry key="xml" value="146" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JAVA" value="710" />
-          <entry key="XML" value="134" />
+          <entry key="XML" value="146" />
         </counts>
       </usages-collector>
     </session>
@@ -55,8 +56,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/generatorConfig.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="49" column="52" lean-forward="true" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
+            <state relative-caret-position="189">
+              <caret line="12" column="59" lean-forward="true" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/xiguaLab/ssm/pojo/Apply.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="50">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -65,7 +75,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/common/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="159">
-              <caret line="16" column="56" lean-forward="true" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+              <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#492#500#0" expanded="true" />
@@ -126,6 +136,22 @@
               <item name="MybatisGenerator" type="58d84e3e:PackageViewProjectNode" />
               <item name="MybatisGenerator" type="616d4139:PackageViewModuleNode" />
             </path>
+            <path>
+              <item name="MybatisGenerator" type="58d84e3e:PackageViewProjectNode" />
+              <item name="MybatisGenerator" type="616d4139:PackageViewModuleNode" />
+              <item name="com" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="MybatisGenerator" type="58d84e3e:PackageViewProjectNode" />
+              <item name="MybatisGenerator" type="616d4139:PackageViewModuleNode" />
+              <item name="com" type="1f31426a:PackageElementNode" />
+              <item name="common" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="MybatisGenerator" type="58d84e3e:PackageViewProjectNode" />
+              <item name="MybatisGenerator" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -146,6 +172,19 @@
               <item name="MybatisGenerator" type="b2602c69:ProjectViewProjectNode" />
               <item name="MybatisGenerator" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MybatisGenerator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MybatisGenerator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MybatisGenerator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MybatisGenerator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="ssm" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -210,12 +249,12 @@
       <updated>1540902879693</updated>
       <workItem from="1540902887584" duration="4832000" />
       <workItem from="1540989131663" duration="517000" />
-      <workItem from="1540990776432" duration="1011000" />
+      <workItem from="1540990776432" duration="1335000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6360000" />
+    <option name="totallyTimeSpent" value="6684000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -230,8 +269,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32840723" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39901477" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -263,10 +302,17 @@
     <entry file="file://$PROJECT_DIR$/MybatisGenerator.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/xiguaLab/ssm/pojo/Apply.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/common/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
-          <caret line="16" column="56" lean-forward="true" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
+          <caret line="16" column="56" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#492#500#0" expanded="true" />
@@ -276,8 +322,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/generatorConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="49" column="52" lean-forward="true" selection-start-line="49" selection-start-column="52" selection-end-line="49" selection-end-column="52" />
+        <state relative-caret-position="189">
+          <caret line="12" column="59" lean-forward="true" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
         </state>
       </provider>
     </entry>
